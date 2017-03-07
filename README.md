@@ -12,7 +12,5 @@ spark-submit --class  "KMeansDemo" --master "local[4]" target/scala-2.11/simple-
 ```
 
 References:
-
 [Apache Spark](https://github.com/apache/spark)
-
 [MapR Demo](https://github.com/mapr/mapr-demos)

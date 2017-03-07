@@ -1,4 +1,4 @@
-name := "Simple Project"
+name := "CS239 Demo"
 
 version := "1.0"
 

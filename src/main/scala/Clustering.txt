@@ -1,0 +1,20 @@
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.clustering.{KMeans, KMeansModel}
+
+val data = sc.textFile("data/mllib/kmeans_data.txt")
+val parsedData = data.map(s=>Vectors.dense(s.split(' ').map(_.toDouble))).cache()
+val clusters = KMeans.train(parsedData, 3, 100)
+val WSSSE = clusters.computeCost(parsedData)
+
+clusters.clusterCenters(2)
+clusters.clusterCenters(1)
+clusters.clusterCenters(0)
+
+val test = clusters.predict(parsedData)
+test.collect()
+
+val datademo = sc.textFile("data/mllib/kmeans_data_demo.txt")
+val parsedDatademo = datademo.map(s=>Vectors.dense(s.split(' ').map(_.toDouble))).cache()
+val testdemo = clusters.predict(parsedDatademo)
+testdemo.collect()
+

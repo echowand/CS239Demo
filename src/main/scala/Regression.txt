@@ -1,0 +1,15 @@
+val data = MLUtils.loadLibSVMFile(sc, "data/mllib/sample_libsvm_data.txt")
+val splits = data.randomSplit(Array(0.6, 0.4), seed = 11L)
+val training = splits(0).cache()
+val test = splits(1)
+
+val model = new LogisticRegressionWithLBFGS().setNumClasses(10).run(training)
+val predictionAndLabels = test.map { case LabeledPoint(label, features) =>
+  val prediction = model.predict(features)
+  (prediction, label)
+}
+
+val metrics = new MulticlassMetrics(predictionAndLabels)
+predictionAndLabels.collect()
+val accuracy = metrics.accuracy
+

@@ -11,6 +11,8 @@ spark-submit --class  "DecisionTreeRegressionDemo" --master "local[4]" target/sc
 spark-submit --class  "KMeansDemo" --master "local[4]" target/scala-2.11/simple-project_2.11-1.0.jar > outKmeans.txt
 ```
 
-Sources:
-https://github.com/apache/spark
-https://github.com/mapr/mapr-demos
+References:
+
+[Apache Spark](https://github.com/apache/spark)
+
+[MapR Demo](https://github.com/mapr/mapr-demos)

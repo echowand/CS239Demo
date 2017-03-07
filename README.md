@@ -1,11 +1,9 @@
-Commands:
-
-1. Clean and build package
+Clean and build package:
 ```
 sbt clean; sbt package
 ```
 
-2. Run
+Run:
 ```
 spark-submit --class  "LogisticRegressionDemo" --master "local[4]" target/scala-2.11/simple-project_2.11-1.0.jar > out.txt
 spark-submit --class  "DecisionTreeClassificationDemo" --master "local[4]" target/scala-2.11/simple-project_2.11-1.0.jar > out1.txt
